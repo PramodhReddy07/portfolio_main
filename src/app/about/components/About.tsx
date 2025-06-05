@@ -123,7 +123,7 @@ const About = () => {
                     <div className="flex flex-col gap-16 items-center w-full">
                         {/* Fact 1: Bikes & Travel */}
                         <div className="flex flex-col md:flex-row items-center gap-8 w-full">
-                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-black/20" style={{ maxWidth: 320 }}>
+                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-transparent dark:bg-black/20" style={{ maxWidth: 320 }}>
                                 <img src="/images-for-about/1C21EDD5-E204-4736-AFE9-C12B471C9047_1_105_c.jpeg" alt="Bikes & Travel" className="object-contain w-full h-full" />
                             </div>
                             <div className="flex-1 flex flex-col justify-center md:pl-8 mt-6 md:mt-0">
@@ -135,7 +135,7 @@ const About = () => {
                         </div>
                         {/* Fact 2: Football & FIFA */}
                         <div className="flex flex-col md:flex-row-reverse items-center gap-8 w-full">
-                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-black/20" style={{ maxWidth: 320 }}>
+                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-transparent dark:bg-black/20" style={{ maxWidth: 320 }}>
                                 <img src="/images-for-about/6F981C7B-B5A5-49B0-8F68-8C64E8942292_1_105_c.jpeg" alt="Football & FIFA" className="object-contain w-full h-full" />
                             </div>
                             <div className="flex-1 flex flex-col justify-center md:pr-8 mt-6 md:mt-0">
@@ -147,7 +147,7 @@ const About = () => {
                         </div>
                         {/* Fact 3: Amateur Photographer */}
                         <div className="flex flex-col md:flex-row items-center gap-8 w-full">
-                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-black/20" style={{ maxWidth: 320 }}>
+                            <div className="flex-shrink-0 rounded-[2.5rem] border-2 border-white overflow-hidden shadow-md bg-transparent dark:bg-black/20" style={{ maxWidth: 320 }}>
                                 <img src="/images-for-about/FB97B2E5-51A0-4990-BACA-8F50E77D43F1_4_5005_c.jpeg" alt="Amateur Photographer" className="object-contain w-full h-full" />
                             </div>
                             <div className="flex-1 flex flex-col justify-center md:pl-8 mt-6 md:mt-0">

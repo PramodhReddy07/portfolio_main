@@ -18,16 +18,19 @@ const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) => {
 
     useEffect(() => {
         const storedPreference = localStorage.getItem("theme");
-        const prefersDarkMode = storedPreference === "dark";
-
+        let prefersDarkMode = false;
+        if (storedPreference === null) {
+            localStorage.setItem("theme", "dark");
+            prefersDarkMode = true;
+        } else {
+            prefersDarkMode = storedPreference === "dark";
+        }
         setIsDarkMode(prefersDarkMode);
-
         if (prefersDarkMode) {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
         }
-        
         document.documentElement.style.overflowY = 'auto';
     }, []);
 
