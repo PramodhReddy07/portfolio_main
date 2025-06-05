@@ -68,7 +68,7 @@ const Contact = () => {
                         <form className='flex flex-col gap-4' onSubmit={sendEmailMessage}>
                             <div className="grid w-full gap-2">
                                 <Label htmlFor="message">Your Email</Label>
-                                <Input type="text" className='w-full h-full border' placeholder='johndoe69@xyz.com' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                <Input type="text" className='w-full h-full border' placeholder='salaar07@xyz.com' value={email} onChange={(e) => setEmail(e.target.value)} required />
                             </div>
                             <div className="grid w-full gap-2">
                                 <Label htmlFor="message">Your message</Label>

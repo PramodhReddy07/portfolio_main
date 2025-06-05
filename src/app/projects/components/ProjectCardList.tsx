@@ -50,3 +50,15 @@ const data: Project[] = [
   },
 
 ];
+
+export const metadata = {
+  // ...existing metadata
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+    other: [
+      { rel: 'icon', url: '/icon1.png', type: 'image/png', sizes: '192x192' },
+      { rel: 'icon', url: '/icon0.svg', type: 'image/svg+xml' }
+    ]
+  }
+}
