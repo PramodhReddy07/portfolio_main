@@ -8,7 +8,7 @@ export default function GitGraph() {
             <Title title="GitHub Contributions" />
             <Link href={'https://github.com/PramodhReddy07'} target="_blank">
                 <GithubGraph
-                    username="Fardeen26"
+                    username="PramodhReddy07"
                     blockMargin={2}
                     colorPallete={["#1e1e2f", "#5a3e7a", "#7e5aa2", "#a87cc3", "#d9a9e6"]}
                 />

@@ -14,6 +14,48 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 
+const data: I_Coursework[] = [
+  {
+    course_title: "Data Structures & Algorithms",
+    course_company_name: "Illinois Institute of Technology",
+    course_company_logo: "/iit.png",
+    course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
+    duration: "Aug 2022 – May 2024",
+    description: "Studied fundamental and advanced data structures, algorithm design, and problem-solving techniques."
+  },
+  {
+    course_title: "Machine Learning",
+    course_company_name: "Illinois Institute of Technology",
+    course_company_logo: "/iit.png",
+    course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
+    duration: "Aug 2022 – May 2024",
+    description: "Covered supervised and unsupervised learning, model evaluation, and real-world ML applications."
+  },
+  {
+    course_title: "Distributed Systems",
+    course_company_name: "Illinois Institute of Technology",
+    course_company_logo: "/iit.png",
+    course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
+    duration: "Aug 2022 – May 2024",
+    description: "Explored distributed architectures, consensus algorithms, and fault tolerance in large-scale systems."
+  },
+  {
+    course_title: "Cloud Computing",
+    course_company_name: "Illinois Institute of Technology",
+    course_company_logo: "/iit.png",
+    course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
+    duration: "Aug 2022 – May 2024",
+    description: "Learned about cloud service models, deployment, and scalable application development on cloud platforms."
+  },
+  {
+    course_title: "Relational Databases",
+    course_company_name: "Illinois Institute of Technology",
+    course_company_logo: "/iit.png",
+    course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
+    duration: "Aug 2022 – May 2024",
+    description: "Focused on database design, SQL, normalization, and transaction management."
+  }
+];
 
 const Coursework = () => {
     const { isDarkMode } = useDarkMode()
@@ -22,7 +64,7 @@ const Coursework = () => {
             <Title title='Coursework' />
 
             <span className='mt-2'></span>
-            {data.map((course, idx) => (
+            {data.map((course: I_Coursework, idx: number) => (
                 <MagicCard key={idx} className="cursor-pointer dark:shadow-2xl h-fit mt-2 !bg-transparent border-none" gradientColor={`${isDarkMode ? '#262626' : 'rgba(197, 241, 241, 0.4)'}`}>
                     <div className="flex !justify-between w-[50vw] max-lg:w-full max-sm:w-full px-5 max-sm:px-0 py-3">
                         <div className="w-full flex">
@@ -56,31 +98,3 @@ const Coursework = () => {
 }
 
 export default Coursework
-
-
-const data: I_Coursework[] = [
-    {
-        course_link: 'https://app.100xdevs.com/',
-        course_company_logo: "/100xdevs.jpeg",
-        course_title: "Full Stack + DevOps + Web3",
-        duration: 'Aug 2024 - March 2025',
-        course_company_name: "100xdevs",
-        description: "In this cohort, I expanded my Full Stack Development skills by diving into DevOps and Web3 technologies. Led by Harkirat Singh, the course covered CI/CD, cloud infrastructure, and decentralized application (dApp) development. It provided hands-on experience with advanced tools and techniques, enhancing my proficiency in modern development practices.",
-    },
-    {
-        course_link: 'https://app.100xdevs.com/',
-        course_company_logo: "/stealth-startup.jpeg",
-        course_title: "MERN Stack Development",
-        duration: 'Sep 2023 - Feb 2024',
-        course_company_name: "Stealth Startup",
-        description: "It was an comprehensive MERN Stack program that covers the entire development process, from building responsive front-end applications to managing back-end services and databases. Through this course, I mastered essential web development technologies, including MongoDB, Express.js, React.js, and Node.js. The curriculum also focused on creating full-stack applications, RESTful APIs, state management with Redux, and integrating databases for dynamic content.",
-    },
-    {
-        course_link: 'https://www.coderarmy.in/',
-        course_company_logo: "https://cdn.discordapp.com/icons/1152852753400479787/c1e616df16d105fa53ba5f58e12afb67.webp?size=60",
-        course_title: "Data Structures and Algorithm",
-        duration: 'Aug 2023 - Feb 2024',
-        course_company_name: "Coder Army",
-        description: "In this course, I gained a solid understanding of key data structures like arrays, linked lists, trees, and graphs, along with algorithms for sorting, searching, and dynamic programming. Focused on hands-on problem-solving, the course enhanced my ability to write efficient, optimized code and improved my readiness for technical interviews and competitive programming.",
-    },
-];

@@ -1,97 +1,153 @@
 'use client';
 
-import React from 'react';
-import { Link, Separator, Tooltip } from '@radix-ui/themes';
-import { GitHubLogoIcon, SunIcon, MoonIcon, FileIcon, RowsIcon, LinkedInLogoIcon, CodeIcon, HomeIcon } from '@radix-ui/react-icons';
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { IoPerson } from "react-icons/io5";
 import { useDarkMode } from '@/hooks/useDarkMode';
+import {
+  SunIcon,
+  MoonIcon,
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  HamburgerMenuIcon,
+  Cross1Icon
+} from '@radix-ui/react-icons';
+import Image from 'next/image';
 
+const navItems = [
+  { label: 'About', href: '/about' },
+  { label: 'Work', href: '/projects' },
+  { label: 'Photography', href: '/photography' },
+  { label: 'Blogs', href: '/blogs' },
+  {
+    label: 'Resume',
+    href: 'https://drive.google.com/file/d/16jUJidd8T9Ack3GBuznZ7ZfsJQ3WV1XF',
+    external: true,
+  },
+];
 
 const Navbar = () => {
-    const { isDarkMode, toggleDarkMode } = useDarkMode();
-    const pathname = usePathname();
+  const pathname = usePathname();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    return (
-        <nav className='w-full py-6 flex justify-center fixed top-0 z-50'>
-            <div className="rounded-full w-[850px] max-lg:w-[800px] max-[400px]:w-[345px] max-[450px]:w-[400px] max-[350px]:w-[330px] max-[321px]:w-[310px] px-2 py-1 bg-white bg-opacity-10 backdrop-blur-lg border dark:border-white/20 flex items-center justify-center dark:shadow-none shadow">
-                <div className='flex justify-center px-2 items-center max-sm:gap-4 gap-8 max-[400px]:gap-4 max-[450px]:gap-5 transition-all'>
+  return (
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
+      <div className="flex justify-between items-center w-full px-6 py-3 rounded-xl bg-white/30 dark:bg-black/30 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_24px_rgba(255,255,255,0.05)]">
 
-                    <Link href="/" underline='none'>
-                        <Tooltip content="Home">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <HomeIcon className={`w-[19px] h-[19px] max-sm:w-[15px] max-sm:h-[15px] text-black dark:text-white ${pathname == '/' ? 'dark:!text-[#FFC83D] !text-[#cc9e2b]' : ''}`} />
-                            </div>
-                        </Tooltip>
-                    </Link>
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <div className="h-8 sm:h-10 w-auto flex items-center">
+            <Image
+              src="/pramodh_logo.png" // <-- Make sure this is in your /public folder
+              alt="Pramodh Reddy Logo"
+              width={160}
+              height={48}
+              className="object-contain"
+              priority
+            />
+          </div>
+        </Link>
 
-                    <Link href="/projects">
-                        <Tooltip content="Projects">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <CodeIcon className={`w-[19px] h-[19px] max-sm:w-[15px] max-sm:h-[15px] text-black dark:text-white ${pathname == '/projects' ? 'dark:!text-[#FFC83D] !text-[#cc9e2b]' : ''}`} />
-                            </div>
-                        </Tooltip>
-                    </Link>
+        {/* Desktop nav */}
+        <ul className="hidden sm:flex items-center gap-6 text-sm font-medium text-gray-700 dark:text-gray-300">
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <Link
+                href={item.href}
+                target={item.external ? '_blank' : '_self'}
+                rel={item.external ? 'noopener noreferrer' : ''}
+                className={`transition hover:text-black dark:hover:text-white ${
+                  pathname === item.href
+                    ? 'text-black dark:text-white font-semibold'
+                    : ''
+                }`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-                    <Link href="/blogs">
-                        <Tooltip content="Blog">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <RowsIcon
-                                    className={`w-[16px] h-[16px] max-sm:w-[13px] max-sm:h-[13px] text-black dark:text-white ${pathname.startsWith('/blogs') ? 'dark:!text-[#FFC83D] !text-[#cc9e2b]' : ''}`}
-                                />
-                            </div>
-                        </Tooltip>
-                    </Link>
+        {/* Right icons */}
+        <div className="hidden sm:flex items-center gap-3">
+          <Link href="https://github.com/PramodhReddy07" target="_blank" rel="noopener noreferrer">
+            <GitHubLogoIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 hover:scale-110 transition-transform" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/pramodh-reddy/" target="_blank" rel="noopener noreferrer">
+            <LinkedInLogoIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 hover:scale-110 transition-transform" />
+          </Link>
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full hover:bg-white/20 dark:hover:bg-white/10 transition"
+            aria-label="Toggle Dark Mode"
+          >
+            {isDarkMode ? (
+              <MoonIcon className="w-4 h-4 text-white rotate-[15deg] transition" />
+            ) : (
+              <SunIcon className="w-4 h-4 text-black rotate-[-15deg] transition" />
+            )}
+          </button>
+        </div>
 
+        {/* Mobile toggle */}
+        <div className="sm:hidden flex items-center">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            className="p-2 hover:bg-white/10 dark:hover:bg-white/5 rounded-full transition"
+          >
+            {menuOpen ? (
+              <Cross1Icon className="w-4 h-4 text-gray-800 dark:text-white" />
+            ) : (
+              <HamburgerMenuIcon className="w-5 h-5 text-gray-800 dark:text-white" />
+            )}
+          </button>
+        </div>
+      </div>
 
-                    <Link href="/about">
-                        <Tooltip content="About">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <IoPerson className={`w-[18px] h-[18px] max-sm:w-[15px] max-sm:h-[15px] text-black dark:text-white ${pathname == '/about' ? 'dark:!text-[#FFC83D] !text-[#cc9e2b]' : ''}`} />
-                            </div>
-                        </Tooltip>
-                    </Link>
-
-                    <Separator orientation='vertical' size={{ sm: '1', lg: '2', xl: '2' }} className='bg-black dark:bg-gray-400' />
-
-                    <Link href="https://drive.google.com/file/d/16jUJidd8T9Ack3GBuznZ7ZfsJQ3WV1XF/view?usp=drive_link" target='_blank' underline='none'>
-                        <Tooltip content="Resume">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <FileIcon className='w-[19px] h-[19px] max-sm:h-[15px] max-sm:w-[15px] text-black dark:text-white' />
-                            </div>
-                        </Tooltip>
-                    </Link>
-
-                    <Link href="https://github.com/PramodhReddy07" target='_blank'>
-                        <Tooltip content="Github">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <GitHubLogoIcon className='w-[19px] h-[19px] max-sm:w-[15px] max-sm:h-[15px] text-black dark:text-white' />
-                            </div>
-                        </Tooltip>
-                    </Link>
-
-                    <Link href="https://www.linkedin.com/in/pramodh-reddy/" target='_blank'>
-                        <Tooltip content="Linkedin">
-                            <div className='hover:px-3 max-sm:hover:px-2 py-2.5 dark:hover:bg-[#262626] hover:bg-[#F4F4F5] rounded-full transition-all duration-300'>
-                                <LinkedInLogoIcon className='w-[19px] h-[19px] max-sm:w-[15px] max-sm:h-[15px] text-black dark:text-white' />
-                            </div>
-                        </Tooltip>
-                    </Link>
-
-                    <Separator orientation='vertical' size={{ sm: '1', lg: '2', xl: '2' }} className='bg-black dark:bg-gray-400' />
-
-                    <div className='hover:px-3 max-sm:hover:px-2 py-2.5 rounded-full transition-all duration-300 cursor-pointer' onClick={toggleDarkMode}>
-                        <div className='flex items-center'>
-                            <button>
-                                {isDarkMode ? <MoonIcon className='w-[18px] h-[18px] max-sm:w-[14px] max-sm:h-[14px]' /> : <SunIcon className='w-5 h-5 max-sm:w-[15px] max-sm:h-[15px]' />}
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="sm:hidden mt-2 px-6 py-4 rounded-xl bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 dark:border-white/10 shadow space-y-4 text-center">
+          {navItems.map((item, index) => (
+            <div key={index}>
+              <Link
+                href={item.href}
+                target={item.external ? '_blank' : '_self'}
+                rel={item.external ? 'noopener noreferrer' : ''}
+                className={`block text-sm font-medium px-3 py-2 rounded-md transition ${
+                  pathname === item.href
+                    ? 'text-black dark:text-white font-semibold bg-white/20 dark:bg-white/10'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white'
+                }`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
             </div>
-        </nav>
-    );
-}
+          ))}
+          <div className="flex justify-center gap-4 pt-2">
+            <Link href="https://github.com/PramodhReddy07" target="_blank" rel="noopener noreferrer">
+              <GitHubLogoIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 hover:scale-110 transition-transform" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/pramodh-reddy/" target="_blank" rel="noopener noreferrer">
+              <LinkedInLogoIcon className="w-5 h-5 text-gray-700 dark:text-gray-300 hover:scale-110 transition-transform" />
+            </Link>
+            <button
+              onClick={toggleDarkMode}
+              className="p-1 rounded-full hover:bg-white/10 dark:hover:bg-white/5 transition"
+            >
+              {isDarkMode ? (
+                <MoonIcon className="w-4 h-4 text-white rotate-[15deg] transition" />
+              ) : (
+                <SunIcon className="w-4 h-4 text-black rotate-[-15deg] transition" />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
 
 export default Navbar;

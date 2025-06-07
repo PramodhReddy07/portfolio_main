@@ -1,16 +1,24 @@
-import { Link } from '@radix-ui/themes'
-import React from 'react'
-
+import { Link } from '@radix-ui/themes';
+import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='w-full px-[400px] max-[1285px]:px-[350px] max-lg:px-64 max-sm:px-4 py-10 flex flex-col max-sm:text-center items-center mt-4 pb-8'>
-      <div className="w-full">
-        <p className='text-sm max-sm:text-xs'>Designed and Developed by <Link href='https://www.linkedin.com/in/pramodh-reddy/' target='_blank' >Pramodh Reddy</Link></p>
+    <footer className="w-full px-6 py-10 mt-10 text-center text-sm text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700">
+      <div className="space-y-2">
+        <p>This site was 97% bug-free when I last checked. Probably still is. 🤞</p>
+        <p>
+          Built by{' '}
+          <Link
+            href="https://www.linkedin.com/in/pramodh-reddy/"
+            target="_blank"
+            className="underline hover:text-purple-500 transition-colors"
+          >
+            Pramodh Reddy
+          </Link>{' '}.
+        </p>
       </div>
-
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
