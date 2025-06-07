@@ -40,34 +40,69 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <motion.div
-        key={typeof window !== 'undefined' ? window.location.pathname : ''}
-        initial={{ opacity: 0, x: 200 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -200 }}
-        transition={{ duration: 0.2, ease: 'easeInOut' }}
-        className="max-[350px]:overflow-hidden mt-8 max-sm:mt-0"
-      >
-        <HeroSection />
-        <div className="w-full flex justify-center mt-24">
-          <Experience />
-        </div>
-        <div className="w-full flex justify-center">
-          <ProjectCardList />
-        </div>
-        <div className="w-full flex justify-center mt-8">
-          <Skills />
-        </div>
-        <div className="w-full flex justify-center mt-8">
-          <Education />
-        </div>
-        <div className="w-full flex justify-center mt-8" id="photography">
-          <Photography />
-        </div>
-        <div className="w-full flex justify-center mt-8" id="contact-section">
-          <Contact />
-        </div>
-      </motion.div>
+      <div className="mt-8 max-sm:mt-0">
+        <motion.div
+          key={typeof window !== 'undefined' ? window.location.pathname : ''}
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -200 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+        >
+          <HeroSection />
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full flex justify-center mt-24"
+          >
+            <Experience />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full flex justify-center"
+          >
+            <ProjectCardList />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full flex justify-center mt-8"
+          >
+            <Skills />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full flex justify-center mt-8"
+          >
+            <Education />
+          </motion.div>
+          <div
+            className="w-full flex justify-center mt-8"
+            id="photography"
+          >
+            <Photography />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full flex justify-center mt-8"
+            id="contact-section"
+          >
+            <Contact />
+          </motion.div>
+        </motion.div>
+      </div>
       <ConditionalFooter />
     </>
   );
