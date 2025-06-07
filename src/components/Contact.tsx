@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from '@radix-ui/themes'
-import { FaXTwitter } from "react-icons/fa6";
-import { bricolage_grotesque } from '@/utils/fonts';
+import { bricolage_grotesque } from '@/utils/fonts'
 import { Input } from "@/components/ui/input"
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { Button } from './ui/button';
-import axios, { AxiosError } from 'axios';
-import { ApiResponse } from '@/types/project';
+import { Textarea } from './ui/textarea'
+import { Label } from './ui/label'
+import { Button } from './ui/button'
+import axios, { AxiosError } from 'axios'
+import { ApiResponse } from '@/types/project'
 import { toast } from 'sonner'
-import { SiLivechat } from "react-icons/si";
-import Title from './ui/Title';
-
+import Title from './ui/Title'
 
 const Contact = () => {
     const [email, setEmail] = useState<string>('')
@@ -57,12 +53,10 @@ const Contact = () => {
     return (
         <div className='w-full px-64 max-[1285px]:px-52 max-lg:px-4 max-sm:px-2 flex flex-col items-center mt-6 pb-8'>
             <Title title='Get in Touch' />
-
             <div className={`w-full flex flex-col gap-3 mt-6 px-36 max-sm:px-4 ${bricolage_grotesque}`}>
                 <div>
                     <h2 className='text-lg max-sm:text-base'>Reach Out</h2>
                 </div>
-
                 <div className="w-full flex justify-center">
                     <div className="mt-4 w-full">
                         <form className='flex flex-col gap-4' onSubmit={sendEmailMessage}>
