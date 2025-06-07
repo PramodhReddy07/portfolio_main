@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Theme } from "@radix-ui/themes";
 import '@radix-ui/themes/styles.css';
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import DarkModeProvider from "@/context/DarkModeContext";
 import { Toaster } from "sonner";
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
-import ConditionalFooter from "./ConditionalFooter";
+// import ConditionalFooter from "./ConditionalFooter";
 import Provider from "@/context/Provider";
+import { AnimatePresence } from 'framer-motion';
 
 export const metadata: Metadata = {
   title: "Pramodh Reddy | Software Engineer Portfolio",
@@ -61,10 +62,11 @@ export default function RootLayout({
           <body className={`bg-white dark:bg-black`}>
             <Toaster position='bottom-right' />
             <Theme className="dark:!bg-black">
-              <Navbar />
-              {children}
+              <AnimatePresence mode="wait">
+                {children}
+              </AnimatePresence>
               <Analytics />
-              <ConditionalFooter />
+              {/* ConditionalFooter removed from here, will be rendered in pages */}
             </Theme>
           </body>
         </DarkModeProvider>

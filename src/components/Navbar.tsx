@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useDarkMode } from '@/hooks/useDarkMode';
 import {
   SunIcon,
@@ -18,7 +18,7 @@ import { Link as ScrollLink } from 'react-scroll';
 const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Work', href: '/projects' },
-  { label: 'Photography', href: '#photography' },
+  { label: 'Photography', href: '/#photography' },
   { label: 'Blogs', href: '/blogs' },
   {
     label: 'Resume',
@@ -29,8 +29,24 @@ const navItems = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [menuOpen, setMenuOpen] = useState(false);
+
+
+  const handlePhotographyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      // If we're on the home page, just scroll
+      const element = document.getElementById('photography');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to home and then scroll
+      router.push('/#photography');
+    }
+  };
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4">
@@ -55,15 +71,12 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             item.label === 'Photography' ? (
               <li key={index}>
-                <ScrollLink
-                  to="photography"
-                  smooth={true}
-                  duration={1000}
-                  offset={-120}
+                <button
+                  onClick={handlePhotographyClick}
                   className="cursor-pointer transition hover:text-black dark:hover:text-white"
                 >
                   Photography
-                </ScrollLink>
+                </button>
               </li>
             ) : (
               <li key={index}>
@@ -127,16 +140,15 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             item.label === 'Photography' ? (
               <div key={index}>
-                <ScrollLink
-                  to="photography"
-                  smooth={true}
-                  duration={1000}
-                  offset={-120}
+                <button
+                  onClick={(e) => {
+                    handlePhotographyClick(e);
+                    setMenuOpen(false);
+                  }}
                   className="block text-sm font-medium px-3 py-2 rounded-md transition cursor-pointer text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
-                  onClick={() => setMenuOpen(false)}
                 >
                   Photography
-                </ScrollLink>
+                </button>
               </div>
             ) : (
               <div key={index}>
