@@ -78,8 +78,7 @@ const About = () => {
     <div className="w-full flex flex-col items-center mt-4 pb-8 px-4">
       <div className="max-w-3xl w-full mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center mt-12 mb-2">
-          It's so nice to meet you, You can call me Pramodh{' '}
-          <span className="inline-block">👋</span>
+          It&apos;s so nice to meet you, You can call me Pramodh{' '}<span className="inline-block">👋</span>
         </h1>
         <p className="text-center text-lg mb-8 text-gray-400">
           Welcome to my digital space!
@@ -115,8 +114,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Your other content stays the same... */}
     </div>
   );
 };

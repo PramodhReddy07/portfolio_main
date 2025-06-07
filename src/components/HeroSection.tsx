@@ -27,7 +27,7 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className={`mt-6 text-[2.5rem] sm:text-[3rem] md:text-[4rem] font-bold tracking-tight leading-tight ${bricolage_grotesque}`}>
-          <span className="block sm:inline">Hello, I'm </span>
+          <span className="block sm:inline">Hello, I&apos;m </span>
           <span className="block sm:inline text-gradient bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Pramodh Reddy</span> <span className="block sm:inline">👋</span>
         </h1>
 
@@ -53,7 +53,7 @@ export default function HeroSection() {
 
         {/* Description */}
         <p className={`max-w-2xl text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed px-2 sm:px-4 ${inter}`}>
-          I write code that works (most of the time), build AI that doesn't try to take over the world, and deploy backend systems that don't crash—unless it's Friday. From cloud APIs to quirky automation scripts, I love solving real-world problems with practical, scalable tech. I believe good software should feel invisible—reliable, fast, and quietly doing its job—like a well-trained ninja. Whether I'm wrangling microservices or convincing an AI model to behave, I build with intention, a touch of obsession, and usually, way too many tabs open.
+          I write code that works (most of the time), build AI that doesn&apos;t try to take over the world, and deploy backend systems that don&apos;t crash—unless it&apos;s Friday. From cloud APIs to quirky automation scripts, I love solving real-world problems with practical, scalable tech. I believe good software should feel invisible—reliable, fast, and quietly doing its job—like a well-trained ninja. Whether I&apos;m wrangling microservices or convincing an AI model to behave, I build with intention, a touch of obsession, and usually, way too many tabs open.
         </p>
 
         {/* CTA Button */}
@@ -66,7 +66,7 @@ export default function HeroSection() {
               offset={-120}
               duration={1000}
             >
-              💬 Let's Connect
+              💬 Let&apos;s Connect
             </ScrollLink>
           </RainbowButton>
         </div>

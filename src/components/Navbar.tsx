@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useDarkMode } from '@/hooks/useDarkMode';
@@ -13,7 +13,6 @@ import {
   Cross1Icon
 } from '@radix-ui/react-icons';
 import Image from 'next/image';
-import { Link as ScrollLink } from 'react-scroll';
 
 const navItems = [
   { label: 'About', href: '/about' },
@@ -33,17 +32,12 @@ const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   const handlePhotographyClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (pathname === '/') {
-      // If we're on the home page, just scroll
       const element = document.getElementById('photography');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // If we're on another page, navigate to home and then scroll
       router.push('/#photography');
     }
   };
@@ -56,7 +50,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center">
           <div className="h-8 sm:h-10 w-auto flex items-center">
             <Image
-              src="/pramodh_logo.png" // <-- Make sure this is in your /public folder
+              src="/pramodh_logo.png"
               alt="Pramodh Reddy Logo"
               width={160}
               height={48}
@@ -82,8 +76,8 @@ const Navbar = () => {
               <li key={index}>
                 <Link
                   href={item.href}
-                  target={item.external ? '_blank' : '_self'}
-                  rel={item.external ? 'noopener noreferrer' : ''}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
                   className={`transition hover:text-black dark:hover:text-white ${
                     pathname === item.href
                       ? 'text-black dark:text-white font-semibold'
@@ -154,8 +148,8 @@ const Navbar = () => {
               <div key={index}>
                 <Link
                   href={item.href}
-                  target={item.external ? '_blank' : '_self'}
-                  rel={item.external ? 'noopener noreferrer' : ''}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
                   className={`block text-sm font-medium px-3 py-2 rounded-md transition ${
                     pathname === item.href
                       ? 'text-black dark:text-white font-semibold bg-white/20 dark:bg-white/10'
