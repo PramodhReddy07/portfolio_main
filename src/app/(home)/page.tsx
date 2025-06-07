@@ -7,6 +7,7 @@ import Education from "@/components/Education"
 import Contact from "@/components/Contact"
 import { motion } from "framer-motion"
 import HeroSection from "@/components/HeroSection"
+import Photography from '@/components/Photography'
 
 export default function Home() {
   return (
@@ -30,6 +31,10 @@ export default function Home() {
 
       <div className="w-full flex justify-center mt-8">
         <Education />
+      </div>
+
+      <div className="w-full flex justify-center mt-8" id="photography">
+        <Photography />
       </div>
 
       {/*

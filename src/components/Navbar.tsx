@@ -13,11 +13,12 @@ import {
   Cross1Icon
 } from '@radix-ui/react-icons';
 import Image from 'next/image';
+import { Link as ScrollLink } from 'react-scroll';
 
 const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Work', href: '/projects' },
-  { label: 'Photography', href: '/photography' },
+  { label: 'Photography', href: '#photography' },
   { label: 'Blogs', href: '/blogs' },
   {
     label: 'Resume',
@@ -52,20 +53,34 @@ const Navbar = () => {
         {/* Desktop nav */}
         <ul className="hidden sm:flex items-center gap-6 text-sm font-medium text-gray-700 dark:text-gray-300">
           {navItems.map((item, index) => (
-            <li key={index}>
-              <Link
-                href={item.href}
-                target={item.external ? '_blank' : '_self'}
-                rel={item.external ? 'noopener noreferrer' : ''}
-                className={`transition hover:text-black dark:hover:text-white ${
-                  pathname === item.href
-                    ? 'text-black dark:text-white font-semibold'
-                    : ''
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
+            item.label === 'Photography' ? (
+              <li key={index}>
+                <ScrollLink
+                  to="photography"
+                  smooth={true}
+                  duration={1000}
+                  offset={-120}
+                  className="cursor-pointer transition hover:text-black dark:hover:text-white"
+                >
+                  Photography
+                </ScrollLink>
+              </li>
+            ) : (
+              <li key={index}>
+                <Link
+                  href={item.href}
+                  target={item.external ? '_blank' : '_self'}
+                  rel={item.external ? 'noopener noreferrer' : ''}
+                  className={`transition hover:text-black dark:hover:text-white ${
+                    pathname === item.href
+                      ? 'text-black dark:text-white font-semibold'
+                      : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            )
           ))}
         </ul>
 
@@ -110,21 +125,36 @@ const Navbar = () => {
       {menuOpen && (
         <div className="sm:hidden mt-2 px-6 py-4 rounded-xl bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 dark:border-white/10 shadow space-y-4 text-center">
           {navItems.map((item, index) => (
-            <div key={index}>
-              <Link
-                href={item.href}
-                target={item.external ? '_blank' : '_self'}
-                rel={item.external ? 'noopener noreferrer' : ''}
-                className={`block text-sm font-medium px-3 py-2 rounded-md transition ${
-                  pathname === item.href
-                    ? 'text-black dark:text-white font-semibold bg-white/20 dark:bg-white/10'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white'
-                }`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            </div>
+            item.label === 'Photography' ? (
+              <div key={index}>
+                <ScrollLink
+                  to="photography"
+                  smooth={true}
+                  duration={1000}
+                  offset={-120}
+                  className="block text-sm font-medium px-3 py-2 rounded-md transition cursor-pointer text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Photography
+                </ScrollLink>
+              </div>
+            ) : (
+              <div key={index}>
+                <Link
+                  href={item.href}
+                  target={item.external ? '_blank' : '_self'}
+                  rel={item.external ? 'noopener noreferrer' : ''}
+                  className={`block text-sm font-medium px-3 py-2 rounded-md transition ${
+                    pathname === item.href
+                      ? 'text-black dark:text-white font-semibold bg-white/20 dark:bg-white/10'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white'
+                  }`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </div>
+            )
           ))}
           <div className="flex justify-center gap-4 pt-2">
             <Link href="https://github.com/PramodhReddy07" target="_blank" rel="noopener noreferrer">
