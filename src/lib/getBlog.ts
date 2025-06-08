@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation'
-
-const prisma = new PrismaClient();
 
 export async function getBlog(blogId: string) {
     try {

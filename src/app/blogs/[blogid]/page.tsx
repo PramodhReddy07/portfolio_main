@@ -57,12 +57,17 @@ export default async function BlogDetailPage({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-    const blogs = await prisma.blog.findMany({
-        select: { id: true },
-        take: 20
-    })
+    try {
+        const blogs = await prisma.blog.findMany({
+            select: { id: true },
+            take: 20
+        })
 
-    return blogs.map((blog) => ({
-        blogid: blog.id
-    }))
+        return blogs.map((blog) => ({
+            blogid: blog.id
+        }))
+    } catch (error) {
+        console.error('Error generating static params:', error)
+        return []
+    }
 }
