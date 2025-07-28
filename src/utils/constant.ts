@@ -3,8 +3,8 @@ import { I_Education, I_Experience } from "@/types/project";
 export const experienceData: I_Experience[] = [
     {
         company_link: "",
-        company_logo: "/molina.jpeg",
-        company_name: "Molina Technologies",
+        company_logo: "/morganstanley.png",
+        company_name: "Morgan Stanley",
         duration: "July 2024 – Present",
         job_title: "Software Engineer",
         description: ""

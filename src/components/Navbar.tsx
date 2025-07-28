@@ -21,7 +21,7 @@ const navItems = [
   { label: 'Blogs', href: '/blogs' },
   {
     label: 'Resume',
-    href: 'https://drive.google.com/file/d/1nPD4_L00vdQPKC5FzvEZdfjBuVlw1y45/view?usp=sharing',
+    href: 'https://drive.google.com/file/d/1dvZMLGE5gY0bNyW7jjBo73RMStj3LStF/view?usp=sharing',
     external: true,
   },
 ];
