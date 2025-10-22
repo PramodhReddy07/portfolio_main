@@ -73,7 +73,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}
             className="w-full flex justify-center mt-8"
           >
-            <Education />
+            {/* <Education /> */}
           </motion.div> */}
           <div
             className="w-full flex justify-center mt-8"
