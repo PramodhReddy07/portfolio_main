@@ -36,9 +36,8 @@ const Education = () => {
                                 </Link>
                             </div>
                             <div className="w-full">
-                                <div className={`grid grid-cols-[1fr_auto] items-start w-[41vw] max-lg:w-full max-sm:w-full ${bricolage_grotesque}`}>
+                                <div className={`w-[41vw] max-lg:w-full max-sm:w-full ${bricolage_grotesque}`}>
                                     <h1 className='text-lg leading-4 mb-1 max-sm:text-base font-semibold'>{edu.course_title}</h1>
-                                    <span className='text-xs max-sm:text-[10px] text-right'>{edu.ending_date}</span>
                                 </div>
                                 <h2 className={`text-sm max-sm:text-xs ${inter}`}>{edu.institute_name}</h2>
                                 <div className="mt-3 max-sm:mt-2 text-sm max-sm:text-[11px]">

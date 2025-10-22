@@ -2,7 +2,6 @@
 
 import ProjectCardList from "../projects/components/ProjectCardList"
 import Skills from "@/components/Skills"
-import Experience from "@/components/Experience"
 import Education from "@/components/Education"
 import Contact from "@/components/Contact"
 import { motion } from "framer-motion"
@@ -49,15 +48,6 @@ export default function Home() {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <HeroSection />
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.2 }}
-            className="w-full flex justify-center mt-24"
-          >
-            <Experience />
-          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
