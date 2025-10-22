@@ -7,7 +7,7 @@ import { I_Education } from '@/types/project';
 import { bricolage_grotesque, inter } from '@/utils/fonts';
 import Title from './ui/Title';
 import { useDarkMode } from '@/hooks/useDarkMode';
-import { educationData } from '@/utils/constant';
+// import { educationData } from '@/utils/constant';
 
 const Education = () => {
     const { isDarkMode } = useDarkMode();
@@ -16,7 +16,7 @@ const Education = () => {
         <div className='w-1/2 max-lg:w-full max-lg:px-20 max-sm:w-full max-sm:px-5 flex flex-col items-center mt-4 pb-8'>
             <Title title='Education' />
 
-            {
+            {/* {
                 educationData.map((edu: I_Education, idx) => (
                     <MagicCard
                         key={idx}
@@ -47,7 +47,7 @@ const Education = () => {
                         </div>
                     </MagicCard>
                 ))
-            }
+            } */}
         </div>
     );
 };
