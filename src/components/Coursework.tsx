@@ -20,7 +20,7 @@ const data: I_Coursework[] = [
     course_company_name: "Illinois Institute of Technology",
     course_company_logo: "/iit.png",
     course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
-    duration: "Aug 2022 – May 2024",
+    duration: "",
     description: "Studied fundamental and advanced data structures, algorithm design, and problem-solving techniques."
   },
   {
@@ -28,7 +28,7 @@ const data: I_Coursework[] = [
     course_company_name: "Illinois Institute of Technology",
     course_company_logo: "/iit.png",
     course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
-    duration: "Aug 2022 – May 2024",
+    duration: "",
     description: "Covered supervised and unsupervised learning, model evaluation, and real-world ML applications."
   },
   {
@@ -36,7 +36,7 @@ const data: I_Coursework[] = [
     course_company_name: "Illinois Institute of Technology",
     course_company_logo: "/iit.png",
     course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
-    duration: "Aug 2022 – May 2024",
+    duration: "",
     description: "Explored distributed architectures, consensus algorithms, and fault tolerance in large-scale systems."
   },
   {
@@ -44,7 +44,7 @@ const data: I_Coursework[] = [
     course_company_name: "Illinois Institute of Technology",
     course_company_logo: "/iit.png",
     course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
-    duration: "Aug 2022 – May 2024",
+    duration: "",
     description: "Learned about cloud service models, deployment, and scalable application development on cloud platforms."
   },
   {
@@ -52,7 +52,7 @@ const data: I_Coursework[] = [
     course_company_name: "Illinois Institute of Technology",
     course_company_logo: "/iit.png",
     course_link: "https://www.iit.edu/academics/programs/computer-science-ms",
-    duration: "Aug 2022 – May 2024",
+    duration: "",
     description: "Focused on database design, SQL, normalization, and transaction management."
   }
 ];
