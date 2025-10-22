@@ -5,15 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 
 const aboutImages = [
-    '/images-for-about/D7936F52-9645-479A-A074-EBA5D3CF2012_1_105_c.jpeg',
-    '/images-for-about/5F93A82D-AC67-404B-8B0E-BBCDCCFF55F8_1_105_c.jpeg',
-    '/images-for-about/02CC9E10-E020-488D-8887-0495AF722409_1_105_c.jpeg',
-    '/images-for-about/F47B68D5-69CF-4952-8D6B-1C78B47FEEBE_1_105_c.jpeg',
-    '/images-for-about/D662AD02-6141-46D0-98D1-82FC5C3EF452_1_105_c.jpeg',
-    '/images-for-about/15AB8B5A-8B03-4B77-8C69-4DF254F37D06_1_105_c.jpeg',
-    '/images-for-about/6C8B7F35-9799-432A-8E83-D114FBF87BF9_1_105_c.jpeg',
-    '/images-for-about/B3F41A50-F9FA-4090-8793-4846878682B1_1_201_a.jpeg',
-    '/images-for-about/23565449-B9F0-4E51-BCF5-EA44AD7C1889_1_102_o.jpeg',
+
 ];
 
 const SectionWithBrightness = ({
