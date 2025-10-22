@@ -2,7 +2,7 @@
 
 import ProjectCardList from "../projects/components/ProjectCardList"
 import Skills from "@/components/Skills"
-import Education from "@/components/Education"
+// import Education from "@/components/Education"
 import Contact from "@/components/Contact"
 import { motion } from "framer-motion"
 import HeroSection from "@/components/HeroSection"
@@ -66,7 +66,7 @@ export default function Home() {
           >
             <Skills />
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -74,7 +74,7 @@ export default function Home() {
             className="w-full flex justify-center mt-8"
           >
             <Education />
-          </motion.div>
+          </motion.div> */}
           <div
             className="w-full flex justify-center mt-8"
             id="photography"
